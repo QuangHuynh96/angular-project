@@ -1,0 +1,16 @@
+
+<div [style]="bgColor" class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-outline-danger ">
+    <input type="radio" name="colorCheck" (change)="checkChoice('red')"> Red
+  </label>
+  <label class="btn btn-outline-primary">
+    <input type="radio" name="colorCheck" (change)="checkChoice('blue')"> Blue
+  </label>
+  <label class="btn btn-outline-warning">
+    <input type="radio" name="colorCheck" (change)="checkChoice('yellow')"> Yelow
+  </label>
+  <label class="btn btn-outline-dark">
+    <input type="radio" name="colorCheck" (change)="checkChoice('black')"> Black
+  </label>
+</div>
+<h2>{{bgColor}}</h2>
