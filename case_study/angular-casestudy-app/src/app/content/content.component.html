@@ -1,0 +1,12 @@
+<div class="row row-cols-1 row-cols-md-3" >
+  <div class="col mb-4 " *ngFor="let service of services">
+    <div class="card highlight bg-light">
+      <img src="{{service.url}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{service.ten}}</h5>
+        <p class="card-text">Diện tích: {{service.dien_tich}} m&#178;</p>
+        <a href="#">Xem thêm</a>
+      </div>
+    </div>
+  </div>
+</div>

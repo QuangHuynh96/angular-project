@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+.highlight:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+  transition: 0.3s;
+}
+
+.highlight-cl:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+  border-radius: 5px;
+  transition: 0.2s;
+}
