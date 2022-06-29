@@ -1,0 +1,19 @@
+.container-form {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: aliceblue;
+  z-index: 1000;
+  overflow-y: scroll;
+}
+
+.container-form-info {
+  padding-top: 30px;
+  padding-bottom:30px;
+}
+img {
+  height: 100px;
+  width: auto;
+}

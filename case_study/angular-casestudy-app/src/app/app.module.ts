@@ -6,7 +6,10 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
-import { ContentComponent } from './content/content.component';
+import { ServiceComponent } from './service/service.component';
+import { ServiceModalComponent } from './service/service-modal/service-modal.component';
+import { ServiceUpdateComponent } from './service/service-update/service-update.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -14,11 +17,14 @@ import { ContentComponent } from './content/content.component';
     NavbarComponent,
     FooterComponent,
     HeaderComponent,
-    ContentComponent
+    ServiceComponent,
+    ServiceModalComponent,
+    ServiceUpdateComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

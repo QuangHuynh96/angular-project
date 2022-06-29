@@ -1,0 +1,16 @@
+<div *ngIf="display_modal" class="box-modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+      </div>
+      <div class="modal-body">Bạn chắc chắn muốn xóa dịch vụ:
+        <input style="background-color: white;color: red; border: none" disabled [value]="service_delete.ten">
+      </div>
+      <div class="modal-footer">
+        <button (click)="deleteService(false)" type="button" class="btn btn-secondary">Close</button>
+        <button (click)="deleteService(true)" type="button" class="btn btn-primary">OK</button>
+      </div>
+    </div>
+  </div>
+</div>

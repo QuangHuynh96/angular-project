@@ -1,0 +1,24 @@
+<div  class="row row-cols-1 row-cols-md-3 m-auto container" >
+  <div class="col mb-2 mt-2 " *ngFor="let service of services">
+    <div class="card highlight bg-light">
+      <img src="{{service.url}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{service.ten}}</h5>
+        <p class="card-text">Diện tích: {{service.dien_tich}} m&#178;</p>
+      </div>
+      <div class="btn-hover-display">
+        <button (click)="serviceUpdate(service)" class="btn btn-outline-light btn-mg">Update</button>
+        <button (click)="serviceDelete(service)" class="btn btn-outline-light btn-mg">Delete</button>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-2 mt-2">
+    <div class="highlight" >
+      <img (click)="createService()" src="https://cdn-icons.flaticon.com/png/128/3161/premium/3161837.png?token=exp=1656525208~hmac=b09d955bdc6757bef4a2a05f3206e77b" class="card-img-top" alt="...">
+    </div>
+  </div>
+</div>
+<app-service-modal [child_services]="services"></app-service-modal>
+<app-service-update [child_services]="services"></app-service-update>
+
+
