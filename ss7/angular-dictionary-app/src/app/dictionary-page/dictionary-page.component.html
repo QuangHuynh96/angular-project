@@ -1,0 +1,29 @@
+
+
+<div class="container">
+  <h2>DICTIONARY</h2>
+  <div>
+    <label for="word">English</label>
+    <input type="text" id="word" (keyup)="search()" [(ngModel)]="word">
+  </div>
+  <div>
+    <label for="mean">Tiếng Việt: </label>
+    <input style="border: none" type="text" id="mean" [(ngModel)]="iword.mean">
+  </div>
+  <table class="table table-dark">
+    <thead>
+    <tr>
+      <th scope="col">English</th>
+      <th scope="col">Tiếng việt</th>
+      <th scope="col">details</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let w of iwords">
+      <th scope="row">{{w.word}}</th>
+      <td>{{w.mean}}</td>
+      <td><a [routerLink]="['/detail', w.word]">detail</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
