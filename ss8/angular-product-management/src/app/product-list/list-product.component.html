@@ -1,0 +1,19 @@
+<p>list-product works!</p>
+<table>
+  <tr>
+    <th>id</th>
+    <th>name</th>
+    <th>price</th>
+    <th>description</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let product of products">
+    <td>{{product.id}}</td>
+    <td>{{product.name}}</td>
+    <td>{{product.price}}</td>
+    <td>{{product.description}}</td>
+    <td><a [routerLink]="['/product/update', product.id]">update</a></td>
+    <td><a [routerLink]="['/product/delete', product.id]">delete</a></td>
+  </tr>
+</table>
