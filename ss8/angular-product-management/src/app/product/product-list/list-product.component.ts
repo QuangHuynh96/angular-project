@@ -1,6 +1,6 @@
 import {Component, Injectable, OnInit} from '@angular/core';
-import {ProductService} from "../services/product.service";
-import {Product} from "../models/product";
+import {ProductService} from "../../services/product/product.service";
+import {Product} from "../../models/product";
 
 @Component({
   selector: 'app-product-list',
@@ -14,9 +14,19 @@ export class ListProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllProduct();
+    this.getAllData()
   }
 
   getAllProduct() {
     this.products = this.productService.getData();
+  }
+
+  getAllData() {
+    this.productService.getAPI().subscribe((data) => {
+      console.log(data);
+      }, (error) => {
+        console.log(error);
+      }
+    )
   }
 }

@@ -1,5 +1,5 @@
 import {Component, Injectable, OnInit} from '@angular/core';
-import {ProductService} from "../services/product.service";
+import {ProductService} from "../../services/product/product.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 
 @Component({

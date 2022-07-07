@@ -3,28 +3,24 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CreateProductComponent } from './product-create/create-product.component';
-import { ListProductComponent } from './product-list/list-product.component';
-import {ProductService} from "./services/product.service";
-import {ReactiveFormsModule} from "@angular/forms";
-import { DeleteProductComponent } from './product-delete/delete-product.component';
-import { UpdateProductComponent } from './product-update/update-product.component';
+import {ProductService} from "./services/product/product.service";
+import {ProductModule} from "./product/product.module";
+import {CategoryModule} from "./category/category.module";
+import {CategoryService} from "./services/category/category.service";
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreateProductComponent,
-    ListProductComponent,
-    DeleteProductComponent,
-    UpdateProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ProductModule,
+    CategoryModule
   ],
   providers: [
-    ProductService
+    ProductService,//DI
+    CategoryService
   ],
   bootstrap: [AppComponent]
 })

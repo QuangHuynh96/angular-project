@@ -1,7 +1,7 @@
 import {Component, Injectable, OnInit} from '@angular/core';
-import {ProductService} from "../services/product.service";
+import {ProductService} from "../../services/product/product.service";
 import {FormControl, FormGroup} from "@angular/forms";
-import {Product} from "../models/product";
+import {Product} from "../../models/product";
 
 @Component({
   selector: 'app-product-create',

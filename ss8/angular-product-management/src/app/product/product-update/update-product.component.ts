@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ProductService} from "../services/product.service";
+import {ProductService} from "../../services/product/product.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
-import {Product} from "../models/product";
+import {Product} from "../../models/product";
 
 @Component({
   selector: 'app-product-update',
@@ -17,6 +17,10 @@ export class UpdateProductComponent implements OnInit {
       name: new FormControl(),
       price: new FormControl(),
       description: new FormControl(),
+      description2: new FormGroup({
+        id2: new FormControl(),
+        name2: new FormControl()
+      })
     }
   );
 

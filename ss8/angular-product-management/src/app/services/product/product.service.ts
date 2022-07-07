@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
-import {Product} from "../models/product";
+import {Product} from "../../models/product";
+import {Observable} from "rxjs";
+import {HttpClient} from "@angular/common/http";
+import {environment} from "../../../environments/environment";
+import {Category} from "../../models/category";
+const API_URL = `${environment.apiUrl}`;
 
 @Injectable({
   providedIn: 'root'
@@ -35,11 +40,32 @@ export class ProductService {
       description: 'Like new'
     }
   ]
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getData() {
     return this.products
   }
+
+  getAPI():Observable<any[]> {
+    return this.http.get<any[]>('http://localhost:8080/api/categories/list');// test API
+  }
+
+  postAPI(product:Product):Observable<Product[]> {
+    return this.http.post<Product[]>(API_URL + '/product', product);
+  }
+
+  getAPIbyId(id:number): Observable<Product> {
+    return this.http.get<Product>(`${API_URL}/product/${id}`);
+  }
+
+  updateAPI(id: number, product:Product): Observable<Product> {
+    return this.http.put<Product>(`${API_URL}/product/${id}`, product);
+  }
+
+  deleteAPIbyId(id:number):Observable<Product> {
+    return this.http.delete<Product>(`${API_URL}/product/${id}`);
+  }
+
 
   addData(product:any) {
     this.products.push(product);
