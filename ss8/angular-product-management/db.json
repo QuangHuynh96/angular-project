@@ -1,0 +1,65 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "categoris": [
+    {
+      "id": 1,
+      "name": "Điện tử"
+    },
+    {
+      "id": 2,
+      "name": "Gia dụng"
+    },
+    {
+      "id": 3,
+      "name": "game thủ vô đối"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "nokia của mọi nhà",
+      "price": 5000,
+      "description": "đồ trung quốc",
+      "category": {
+        "id": 1,
+        "name": "Điện tử"
+      }
+    },
+    {
+      "id": 2,
+      "name": "ip15",
+      "price": 5000,
+      "description": "đồ trung quốc",
+      "category": {
+        "id": 1,
+        "name": "Điện tử"
+      }
+    },
+    {
+      "id": 3,
+      "name": "máy giặc",
+      "price": 5000,
+      "description": "đồ trung quốc",
+      "category": {
+        "id": 2,
+        "name": "Gia dụng"
+      }
+    }
+  ]
+}

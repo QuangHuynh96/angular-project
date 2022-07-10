@@ -25,12 +25,13 @@ export class DeleteProductComponent implements OnInit {
   }
 
   deleteProduct() {
-    // if(confirm("Are you sure to delete "+this.id)) {
-    //   this.productService.deleteData(this.id);
-    // }
     if(window.confirm("Bạn chắc chắn muốn xóa product id: " + this.id)) {
-      this.productService.deleteData(this.id);
+      this.productService.deleteAPIbyId(this.id).subscribe(next => {
+      }, error => {
+      },// @ts-ignore
+          complete => {
+        this.router.navigate(["product/list"]);
+      });
     }
-    this.router.navigate(["product/list"]);
   }
 }

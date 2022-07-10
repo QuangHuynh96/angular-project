@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
 import {CategoryService} from "../../services/category/category.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
+import {Category} from "../../models/category";
 
 @Component({
   selector: 'app-category-delete',
@@ -10,7 +10,7 @@ import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 })
 export class CategoryDeleteComponent implements OnInit {
   // @ts-ignore
-  categoryForm: FormGroup;
+  category:Category;
   // @ts-ignore
   id: number;
 
@@ -20,25 +20,27 @@ export class CategoryDeleteComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       // @ts-ignore
       this.id = +paramMap.get('id');
-      const category = this.getCategory(this.id);
-      this.categoryForm = new FormGroup({
-        // @ts-ignore
-        id: new FormControl(category.id),
-        // @ts-ignore
-        name: new FormControl(category.name),
-      });
+      console.log(this.id)
     });
   }
 
   ngOnInit() {
+    this.getCategoryApi()
   }
 
-  getCategory(id: number) {
-    return this.categoryService.findById(id);
+  getCategoryApi() {
+    this.categoryService.getAPIbyId(this.id).subscribe(next => {
+      this.category = next;
+    }, error => {
+      console.log(error)
+    });
   }
 
-  deleteCategory(id: number) {
-    this.categoryService.deleteCategory(id);
-    this.router.navigate(['/category/list']);
+  deleteCategory() {
+    this.categoryService.deleteAPIbyId(this.category.id).subscribe(next => {}, error => {},
+      // @ts-ignore
+        complete => {
+      this.router.navigate(['/category/list']);
+    });
   }
 }

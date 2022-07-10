@@ -18,6 +18,10 @@ export class CategoryListComponent implements OnInit {
   }
 
   getAll() {
-    this.categories = this.categoryService.getAll();
+    this.categoryService.getAPI().subscribe(data => {
+      this.categories = data;
+    }, error => {
+      console.log(error)
+    });
   }
 }

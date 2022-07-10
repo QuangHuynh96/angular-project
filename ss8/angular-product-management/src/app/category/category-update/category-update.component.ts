@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import { CategoryService } from 'src/app/services/category/category.service';
-import {ActivatedRoute, ParamMap} from "@angular/router";
+import {ActivatedRoute, ParamMap, Router} from "@angular/router";
+import {Category} from "../../models/category";
 
 @Component({
   selector: 'app-category-update',
@@ -10,35 +11,41 @@ import {ActivatedRoute, ParamMap} from "@angular/router";
 })
 export class CategoryUpdateComponent implements OnInit {
   // @ts-ignore
-  categoryForm: FormGroup;
-  // @ts-ignore
-  id: number;
+  categoryForm: FormGroup = new FormGroup({
+    id: new FormControl(),
+    name: new FormControl(),
+  });
 
   constructor(private categoryService: CategoryService,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,
+              private router: Router) {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       // @ts-ignore
-      this.id = +paramMap.get('id');
-      const category = this.getCategory(this.id);
-      this.categoryForm = new FormGroup({
-        // @ts-ignore
-        id: new FormControl(category.id),
-        // @ts-ignore
-        name: new FormControl(category.name),
-      });
+      const id =parseInt( +paramMap.get("id"));
+      console.log(id)
+
+      this.categoryService.getAPIbyId(id).subscribe(data => {
+        const category:Category = data;
+        this.categoryForm = new FormGroup({
+            id: new FormControl(category.id),
+            name: new FormControl(category.name),
+          });
+        }
+      );
     });
   }
 
   ngOnInit() {
   }
 
-  getCategory(id: number) {
-    return this.categoryService.findById(id);
-  }
-
-  updateCategory(id: number) {
+  updateCategory() {
     const category = this.categoryForm.value;
-    this.categoryService.updateCategory(id, category);
-    alert('Cập nhật thành công');
+    this.categoryService.updateAPI(category.id,category).subscribe(next => {
+      alert('Cập nhật thành công');
+    },err => {
+    },// @ts-ignore
+       complete => {
+      this.router.navigate(["category/list"])
+    });
   }
 }
