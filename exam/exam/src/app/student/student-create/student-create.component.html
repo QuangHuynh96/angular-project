@@ -1,0 +1,45 @@
+<div class="container">
+  <h3>Cập nhật student</h3>
+  <form [formGroup]="updateForm" (ngSubmit)="createStudent()">
+    <div class="form-group">
+      <label for="exampleInputName">Name</label>
+      <input type="text" class="form-control" id="exampleInputName" formControlName="name">
+      <label class="ms-err" *ngIf="!updateForm.controls.name?.valid && (updateForm.controls.name?.dirty
+              ||updateForm.controls.name?.touched)">*bắt buộc
+      </label>
+    </div>
+    <div class="form-group">
+      <label for="email">email</label>
+      <input type="email" class="form-control" id="email" formControlName="email">
+      <label class="ms-err" *ngIf="!updateForm.controls.email?.valid && (updateForm.controls.email?.dirty
+              ||updateForm.controls.email?.touched)">*sai định dạng vd: acb@def.com
+      </label>
+    </div>
+    <div class="form-group">
+      <label for="phone">phone</label>
+      <input type="text" class="form-control" id="phone" formControlName="phone">
+      <label class="ms-err" *ngIf="!updateForm.controls.phone?.valid && (updateForm.controls.phone?.dirty
+              ||updateForm.controls.phone?.touched)">*bắt buộc, từ 10-12 số
+      </label>
+    </div>
+    <div>
+      <label >teacher</label>
+      <select class="custom-select" formControlName="teacher" [compareWith]="compareFnTeacher">
+        <option *ngFor="let t of teachers" [ngValue]="t" >{{t.name}}</option>
+      </select>
+    </div>
+    <div>
+      <label >group</label>
+      <select class="custom-select" formControlName="group" [compareWith]="compareFnGroup">
+        <option *ngFor="let g of groups" [ngValue]="g" >{{g.title}}</option>
+      </select>
+    </div>
+    <div>
+      <br>
+      <p class="ms-err" *ngIf="!updateForm.valid">* vui lòng điền đầy đủ thông tin</p>
+      <button type="submit" [disabled]="!updateForm.valid" class="btn btn-outline-info">
+        Cập nhật
+      </button>
+    </div>
+  </form>
+</div>

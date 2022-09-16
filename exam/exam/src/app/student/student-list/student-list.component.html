@@ -1,0 +1,36 @@
+<div class="container">
+  <nav class="navbar">
+    <a class="btn btn-outline-info disabled" [routerLink]="['/student/create']" >Create (disable)</a>
+    <form class="form-inline my-2 my-lg-0" [formGroup]="searchForm" (ngSubmit)="getDataByname()">
+      <input class="form-control mr-sm-2" type="search" formControlName="name" placeholder="Enter name..." aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </nav>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>group</th>
+      <th>teaccher</th>
+      <th>email</th>
+      <th>phone</th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let student of students | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+      <th>{{student.id}}</th>
+      <td>{{student.name}}</td>
+      <td>{{student.group.title}}</td>
+      <td>{{student.teacher.name}}</td>
+      <td>{{student.email}}</td>
+      <td>{{student.phone}}</td>
+      <td><a class="btn btn-warning" [routerLink]="['/student/update', student.id]">update</a></td>
+      <td><a class="btn btn-danger" [routerLink]="['/student/delete', student.id]">delete</a></td>
+    </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+</div>

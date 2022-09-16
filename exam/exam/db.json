@@ -1,0 +1,65 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "students": [
+    {
+      "id": 4,
+      "name": "HsiTT",
+      "title": "angular",
+      "group": {
+        "id": 2,
+        "name": "nhóm 3"
+      },
+      "title": "angular",
+      "teacher": {
+        "id": 1,
+        "name": "teacher A"
+      },
+      "email": "bee@gmail.com",
+      "phone": "0123456784"
+    }
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "name": "nhóm 1"
+    },
+    {
+      "id": 2,
+      "name": "nhóm 2"
+    },
+    {
+      "id": 2,
+      "name": "nhóm 3"
+    }
+  ],
+  "teachers": [
+    {
+      "id": 1,
+      "name": "teacher A"
+    },
+    {
+      "id": 2,
+      "name": "teacher B"
+    },
+    {
+      "id": 2,
+      "name": "teacher C"
+    }
+  ]
+}
